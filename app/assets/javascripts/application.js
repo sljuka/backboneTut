@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require twitter/bootstrap
+//= require handlebars.runtime
 //= require ./lib/underscore
 //= require ./lib/backbone
 //= require ./app/buggy
