@@ -4,9 +4,16 @@ class App.Views.Content extends Backbone.View
 
 	template: HandlebarsTemplates['app/templates/content']
 
+	initialize: ->
+		@listenTo App.Vent, "project:create", @swapMainToEmpty
+
 	render: ->
 		@$el.html(@template())
 		@
+
+	swapMainToEmpty: ->
+		@swapMain(new App.Views.Empty())
+		Backbone.history.navigate("/projects")
 
 	swapMain: (v) ->
 		@changeCurrentMainView(v)
