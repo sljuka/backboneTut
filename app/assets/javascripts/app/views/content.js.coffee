@@ -6,6 +6,7 @@ class App.Views.Content extends Backbone.View
 
 	initialize: ->
 		@listenTo App.Vent, "project:create", @swapMainToEmpty
+		@listenTo App.Vent, "project:new", @swapMainToNewProject
 
 	render: ->
 		@$el.html(@template())
@@ -30,3 +31,7 @@ class App.Views.Content extends Backbone.View
 	changeCurrentSideView: (v) ->
 		@currentSideView.remove() if @currentSideView
 		@currentSideView = v
+
+	swapMainToNewProject: ->
+		@swapMain(new App.Views.NewProject({ model : new App.Models.Project}))
+		Backbone.history.navigate("/projects/new")
