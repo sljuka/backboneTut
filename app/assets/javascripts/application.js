@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require ./lib/csrf_hack
 //= require twitter/bootstrap
 //= require handlebars.runtime
 //= require ./lib/underscore
