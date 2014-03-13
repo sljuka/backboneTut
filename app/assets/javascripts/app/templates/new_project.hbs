@@ -2,9 +2,9 @@
 	<fieldset>
 		<legend>New project</legend>
 		<label for="name">Project name</label>
-		<input type="text" name="name" id="name" placeholder="Project name" />
+		<input value="{{name}}" type="text" name="name" id="name" placeholder="Project name" />
 		<label for="description">Description</label>
-		<textarea id="description" name="description" rows="5" cols="30"></textarea>
+		<textarea id="description" name="description" rows="5" cols="30" >{{description}}</textarea>
 		<br>
 		<button type="submit" class="btn">Submit</button>
 	</fieldset>

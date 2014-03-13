@@ -9,10 +9,15 @@ class App.Views.Content extends Backbone.View
 		@listenTo App.Vent, "project:new", @swapMainToNewProject
 		@listenTo App.Vent, "project:show", @projectShow
 		@listenTo App.Vent, "project:destroy", @swapMainToEmpty
+		@listenTo App.Vent, "project:edit", @editProject
 
 	render: ->
 		@$el.html(@template())
 		@
+
+	editProject: (model) ->
+		@swapMain(new App.Views.NewProject({ model: model}))
+		Backbone.history.navigate('projects/edit/' + model.id)
 
 	swapMainToEmpty: ->
 		@swapMain(new App.Views.Empty())

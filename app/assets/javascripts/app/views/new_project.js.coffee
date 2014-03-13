@@ -12,7 +12,7 @@ class App.Views.NewProject extends Backbone.View
 		App.Vent.trigger "project:create", @model
 
 	render: ->
-		@$el.html(@template())
+		@$el.html(@template(@model.toJSON()))
 		@
 
 	saveProject: (e) ->
