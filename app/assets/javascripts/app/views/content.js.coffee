@@ -15,7 +15,7 @@ class App.Views.Content extends Backbone.View
 		@$el.html(@template())
 		@
 
-	editProject: (model) ->
+	editProject: (model ) ->
 		@swapMain(new App.Views.NewProject({ model: model}))
 		Backbone.history.navigate('projects/edit/' + model.id)
 
@@ -28,7 +28,7 @@ class App.Views.Content extends Backbone.View
 		@$('#main-area').html(@currentMainView.render().el)
 
 	changeCurrentMainView: (v) ->
-		@currentMainView.remove() if @currentMainView
+		@currentMainView.leave() if @currentMainView
 		@currentMainView = v
 
 	swapSide: (v) ->
@@ -36,7 +36,7 @@ class App.Views.Content extends Backbone.View
 		@$('#sidebar-area').html(@currentSideView.render().el)
 
 	changeCurrentSideView: (v) ->
-		@currentSideView.remove() if @currentSideView
+		@currentSideView.leave() if @currentSideView
 		@currentSideView = v
 
 	swapMainToNewProject: ->
