@@ -4,8 +4,7 @@ class App.Views.Project extends Backbone.View
 
 	initialize: ->
 		@listenTo @model, 'destroy', @remove
-		@listenTo @model, 'change:name', @render
-		@listenTo App.Vent, 'test', @log
+		@listenTo @model, 'change:name', @render 
 
 	events:
 		"click a": "showDetails"
@@ -14,6 +13,7 @@ class App.Views.Project extends Backbone.View
 		console.log "test"
 
 	render: ->
+		@log()
 		@$el.html(@template(@model.toJSON()))
 		@
 
